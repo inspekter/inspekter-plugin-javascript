@@ -1,4 +1,6 @@
 # inspekter-plugin-javascript
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/inspekter/inspekter-plugin-javascript.svg)](https://greenkeeper.io/)
 Inspekter JavaScript reporter module.
 
 ## Install
