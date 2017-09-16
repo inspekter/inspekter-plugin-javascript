@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/inspekter/inspekter-plugin-javascript.git"
   },
+  "engines" : {
+    "node" : ">=4.0.0"
+  },
   "author": "Pablo Oliveira <kryptogeist@gmail.com>",
   "license": "MIT",
   "bugs": {
