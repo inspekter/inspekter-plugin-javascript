@@ -91,4 +91,12 @@ describe('inspekter-plugin-javascript', () => {
       })
     })
   })
+
+  describe('getExtension', () => {
+    it('should return js', () => {
+      const actual = ipj.getExtension()
+
+      expect(actual).to.equal('js')
+    })
+  })
 })

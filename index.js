@@ -43,3 +43,7 @@ module.exports.analyze = (source) => {
 
   return reports
 }
+
+module.exports.getExtension = () => {
+  return 'js'
+}
