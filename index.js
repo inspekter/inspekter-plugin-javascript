@@ -2,6 +2,7 @@
 
 const escomplex = require('escomplex')
 const path = require('path')
+const read = require('read-file')
 
 function sanitize (fileName, filePath, result) {
   return {
@@ -35,7 +36,9 @@ module.exports.analyze = (source) => {
 
   if (Array.isArray(source)) {
     source.forEach((filePath) => {
-      result = escomplex.analyse(filePath)
+      let fullPath = path.resolve(filePath)
+      let content = read.sync(fullPath, 'utf8')
+      result = escomplex.analyse(content)
       report = sanitize(path.basename(filePath), filePath, result)
       reports.push(report)
     })
