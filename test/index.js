@@ -67,7 +67,7 @@ const properties = [
 describe('inspekter-plugin-javascript', () => {
   describe('analyze', () => {
     it('should always return an array', () => {
-      const source = ['fixtures/file1.js']
+      const source = ['test/fixtures/file1.js']
       const actual = ipj.analyze(source)
 
       expect(actual).to.be.an('array')
@@ -75,7 +75,7 @@ describe('inspekter-plugin-javascript', () => {
     })
 
     it('should return one report object for each file', () => {
-      const source = ['fixtures/file1.js', 'fixtures/file2.js']
+      const source = ['test/fixtures/file1.js', 'test/fixtures/file2.js']
       const actual = ipj.analyze(source)
 
       expect(actual).to.be.an('array')
@@ -83,7 +83,7 @@ describe('inspekter-plugin-javascript', () => {
     })
 
     it('should return an object with all standard properties', () => {
-      const source = ['fixtures/file1.js']
+      const source = ['test/fixtures/file1.js']
       const actual = ipj.analyze(source)[0]
 
       properties.forEach((property) => {
