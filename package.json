@@ -1,5 +1,5 @@
 {
-  "name": "@inspekter/inspekter-plugin-javascript",
+  "name": "inspekter-plugin-javascript",
   "version": "1.0.0",
   "description": "Inspekter JavaScript reporter",
   "main": "index.js",
