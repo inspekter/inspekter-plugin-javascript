@@ -36,8 +36,8 @@ module.exports.analyze = (source) => {
 
   if (Array.isArray(source)) {
     source.forEach((filePath) => {
-      let fullPath = path.resolve(__dirname, filePath)
-      let content = read.sync(fullPath, 'utf8')
+      // let fullPath = path.resolve(__dirname, filePath)
+      let content = read.sync(filePath, 'utf8')
       result = escomplex.analyse(content)
       report = sanitize(path.basename(filePath), filePath, result)
       reports.push(report)
