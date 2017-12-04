@@ -1,6 +1,6 @@
 {
   "name": "inspekter-plugin-javascript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Inspekter JavaScript reporter",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/inspekter/inspekter-plugin-javascript#readme",
   "dependencies": {
     "escomplex": "^2.0.0-alpha",
+    "esprima": "^4.0.0",
     "read-file": "^0.2.0"
   },
   "devDependencies": {
