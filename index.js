@@ -1,30 +1,30 @@
 'use strict'
 
-const escomplex = require('escomplex')
+const escomplex = require('typhonjs-escomplex')
 const path = require('path')
 const read = require('read-file')
 
 function sanitize (fileName, filePath, result) {
   return {
-    cyclomatic: result.aggregate.cyclomatic,
-    cyclomaticDensity: result.aggregate.cyclomaticDensity,
+    cyclomatic: result.methodAggregate.cyclomatic,
+    cyclomaticDensity: result.methodAggregate.cyclomaticDensity,
     file: {
       name: fileName,
       path: filePath
     },
     halstead: {
-      bugs: result.aggregate.halstead.bugs,
-      difficulty: result.aggregate.halstead.difficulty,
-      effort: result.aggregate.halstead.effort,
-      length: result.aggregate.halstead.length,
-      time: result.aggregate.halstead.time,
-      vocabulary: result.aggregate.halstead.vocabulary,
-      volume: result.aggregate.halstead.volume
+      bugs: result.methodAggregate.halstead.bugs,
+      difficulty: result.methodAggregate.halstead.difficulty,
+      effort: result.methodAggregate.halstead.effort,
+      length: result.methodAggregate.halstead.length,
+      time: result.methodAggregate.halstead.time,
+      vocabulary: result.methodAggregate.halstead.vocabulary,
+      volume: result.methodAggregate.halstead.volume
     },
     maintainability: result.maintainability,
     sloc: {
-      logical: result.aggregate.sloc.logical,
-      physical: result.aggregate.sloc.physical
+      logical: result.methodAggregate.sloc.logical,
+      physical: result.methodAggregate.sloc.physical
     }
   }
 }
@@ -38,7 +38,7 @@ module.exports.analyze = (source) => {
     source.forEach((filePath) => {
       let fullPath = path.resolve(__dirname, filePath)
       let content = read.sync(fullPath, 'utf8')
-      result = escomplex.analyse(content)
+      result = escomplex.analyzeModule(content)
       report = sanitize(path.basename(filePath), filePath, result)
       reports.push(report)
     })
@@ -47,6 +47,4 @@ module.exports.analyze = (source) => {
   return reports
 }
 
-module.exports.getExtension = () => {
-  return 'js'
-}
+module.exports.extension = 'js'
