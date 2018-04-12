@@ -75,11 +75,11 @@ describe('inspekter-plugin-javascript', () => {
     })
 
     it('should return one report object for each file', () => {
-      const source = ['test/fixtures/file1.js', 'test/fixtures/file2.js']
+      const source = ['test/fixtures/file1.js', 'test/fixtures/file2.js', 'test/fixtures/file3.js']
       const actual = ipj.analyze(source)
 
       expect(actual).to.be.an('array')
-      expect(actual).to.have.lengthOf(2)
+      expect(actual).to.have.lengthOf(source.length)
     })
 
     it('should return an object with all standard properties', () => {
@@ -92,9 +92,9 @@ describe('inspekter-plugin-javascript', () => {
     })
   })
 
-  describe('getExtension', () => {
+  describe('extension', () => {
     it('should return js', () => {
-      const actual = ipj.getExtension()
+      const actual = ipj.extension
 
       expect(actual).to.equal('js')
     })
